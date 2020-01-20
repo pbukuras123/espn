@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
   def create
     @message = Message.find(params[:message_id])
-    @comment = @message.comments.create(comment_parans)
+    @comment = @message.comments.create(comment_params)
     @comment.user_id = current_user.id
 
     if @comment.save
